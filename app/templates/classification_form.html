@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Company Classification</title>
+</head>
+<body>
+    <h1>Welcome to the Company Classification App</h1>
+    <p>This app will help you classify companies based on their website or description.</p>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Classification</title>
+</head>
+<body>
+    <h1>Company Classification</h1>
+
+    <form action="/" method="post">
+        <label for="url">Company URL:</label><br>
+        <input type="text" id="url" name="url"><br><br>
+
+        <label for="description">Or provide a short company description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Classify">
+    </form>
+
+    <!-- Display Flash Messages (moved to below the form) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
